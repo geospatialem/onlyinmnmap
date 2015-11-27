@@ -29,9 +29,10 @@
       //Basemap
       L.esri.basemapLayer("Topographic").addTo(map);
 
-      //Eventually snipe Hennepin County's park dataset (heavy investigation needed since they hide their sh*t)
+      // Hennepin County Park dataset
+      // TODO: For additional query work - Park facility service (called 'type'): http://gis.hennepin.us/arcgis/rest/services/HennepinData/PLACES/MapServer/11/query?outFields=*&where=ACTIVITY%20like%20%27%25Ice%20Rink%25%27
       var parks = L.esri.featureLayer({
-        url: "http://gis2.metc.state.mn.us/arcgis/rest/services/MetroGIS/Recreation_Tourism/MapServer/3",
+        url: "http://gis.hennepin.us/arcgis/rest/services/HennepinData/PLACES/MapServer/3",
         style: function () {
           return { color: "#70ca49", weight: 2 };
         }
