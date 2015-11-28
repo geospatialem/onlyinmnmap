@@ -17,10 +17,9 @@ var parks = L.esri.featureLayer({
   }
 }).addTo(map);
 
-var popupTemplate = "<h3>{PARK_NAME}</h3>";
+var popupTemplate = "<h3>{PARK_NAME}</h3>{PARK_CITY}<br />Park ID: {PARKID}";
 
-// This bullsh*t isn't working.
-// TODO: Find out why this isn't working (other feature services are also non functional)
+// This only works in the older Esri and Leaflet versions
 parks.bindPopup(function(feature){
   return L.Util.template(popupTemplate, feature.properties);
 });
