@@ -1,48 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-     <!-- Load Leaflet from CDN-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="description" content="Hockey Rinks">
+    <meta name="author" content="Kitty Hurley">
+    <title>Hockey Rinks</title>
+
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-1.0.0-b1/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet-1.0.0-b1/leaflet.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
 
-    <!-- Load Esri Leaflet locally, after cloning this repository -->
-    <script src="http://cdn.jsdelivr.net/leaflet.esri/2.0.0-beta.5/esri-leaflet.js"></script>
-
-    <style>
-    /* Ensure the HTML body resets to '0', and hide any extra 'overflow' */
-    body {
-        padding: 0;
-        margin: 0;
-        overflow: hidden;
-    }
-    /* Set the map height to the full size of the browser window */
-    html, body, #map {
-        height: 100%; /* Height is required for map div */
-    }
-    </style>
   </head>
   <body>
+
     <div id="map"></div>
-    <script>
-      var map = L.map('map').setView([44.95, -93.09], 6);
 
-      //Basemap
-      L.esri.basemapLayer("Topographic").addTo(map);
+    <script src="http://cdn.leafletjs.com/leaflet-1.0.0-b1/leaflet.js"></script>
+    <script src="http://cdn.jsdelivr.net/leaflet.esri/2.0.0-beta.5/esri-leaflet.js"></script>
+    <script src="assets/js/script.js"></script>
 
-      // Hennepin County Park dataset
-      // TODO: For additional query work - Park facility service (called 'type'): http://gis.hennepin.us/arcgis/rest/services/HennepinData/PLACES/MapServer/11/query?outFields=*&where=ACTIVITY%20like%20%27%25Ice%20Rink%25%27
-      var parks = L.esri.featureLayer({
-        url: "http://gis.hennepin.us/arcgis/rest/services/HennepinData/PLACES/MapServer/3",
-        style: function () {
-          return { color: "#70ca49", weight: 2 };
-        }
-      }).addTo(map);
-
-      var popupTemplate = "<h3>{NAME}</h3>{ACRES} Acres<br><small>Property ID: {PROPERTYID}<small>";
-
-      parks.bindPopup(function(feature){
-        return L.Util.template(popupTemplate, feature.properties)
-      });
-    </script>
   </body>
 </html>
