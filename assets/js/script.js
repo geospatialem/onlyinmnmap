@@ -2,7 +2,7 @@
 var map = L.map('map').setView([44.95, -93.09], 10);
 
 //Basemap
-L.esri.basemapLayer("Topographic").addTo(map);
+L.esri.basemapLayer("Gray").addTo(map);
 
 // Hennepin County Park dataset
 // TODO: For additional query work - Park facility service (called 'type'): http://gis.hennepin.us/arcgis/rest/services/HennepinData/PLACES/MapServer/11/query?outFields=*&where=ACTIVITY%20like%20%27%25Ice%20Rink%25%27
